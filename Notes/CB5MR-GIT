@@ -1,0 +1,25 @@
+Close Brace 5 Minute React: GIT Repo
+
+--------
+Commands
+--------
+
+  Status: $ git status
+
+  Add All Files: $ git add -A
+
+  Commit Changes: $ git commit -m "message text"
+
+  Push Changes: $ git push
+
+---------------
+Install & Setup
+---------------
+
+  > github.com & signup or login
+
+    > New Repository > Enter Name > Check 'Initialize with README' > Add .gitignor for Node > select license > Create Repository
+
+  > Go to project parent dir
+
+    > $ git clone [repoUrl] [projectFolder]

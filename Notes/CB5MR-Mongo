@@ -1,0 +1,57 @@
+Close Brace 5 Minute React: MongoDB
+
+---------
+Commands
+---------
+
+  Launching the Mongo Daemon:
+
+    Manually:     $ mongod --config /usr/local/etc/mongod.conf
+    
+    As a Service: $ brew services start mongodb --config /usr/local/etc/mongod.conf
+
+  Start Mongo Shell: $ mongo
+
+  Show Databases: $ show dbs
+
+  Show Current Working Database: $ db
+
+  Show Collections: $ show collections
+
+  Create Database: $ use databaseName (ex. $ use musiclist)
+
+    ** Database is not created until you put some data in it **
+
+  Insert: $ db.collectionName.insert({ key: 'Value', anotherKey: 'Another Value' });
+
+    * Can also be an array of objects: [{ key: 'Value1', anotherKey: 'Another Value1' }, { key: 'Val2', anotherKey: 'AVal2' }];
+
+  Find: db.collectionName.find();
+
+  Find Pretty: db.collectionName.find().pretty();
+
+  Update a single entry: $ db.collectionName.updateOne({ searchKey: 'value' }, $set: { keyToChange: 'value' });
+
+    * Returns first match
+
+  Remove an entry: $ db.collectionName.remove({ searchKey: 'value' });
+
+
+
+-------
+Install
+-------
+
+  $ brew update && brew install mongodb
+
+  Create directory for the DB:
+
+    $ mkdir -p ~/data/db 
+
+  Edit Config file:
+
+    $ subl /usr/local/etc/mongod.conf
+
+    comment (#) out the entire sytemLog section
+
+    replace path with the path that was created (ex. dbPath: /Users/joshuamullenberg/data/db)

@@ -1,0 +1,38 @@
+Close Brace 5 Minute React: SublimeText
+
+----------
+References
+----------
+  Sublime Text Power User - Wes Bos: https://sublimetextbook.com/friend/CLOSEBRACE
+
+---------
+Shortcuts
+---------
+  Command Palette: CMD-SHIFT-P
+
+-----
+Setup
+-----
+  Color Scheme used for TUT: Monokai
+
+  Add Sublime to path so it can be executed from CMD:
+    
+    - open .bash_profile (or .zshrc) in home dir
+      * .oh-my-zsh/custom/alias.zsh
+
+    - add: alias subl="open -a /Applications/Sublime\ Text.app"
+
+    - save & source file (source ~/.bash_profile)
+
+    - install packages: Command Palette > "install package"
+      + babel: Syntax definitions for ES6 Javascript with REact JSX Extensions
+          (includes highlighting for ES7)
+      + sass: Sass support for Textmat and Sublime Text
+      + SublimeLinter
+      + elsint: SublimeLinter-contrib-eslint v1.10.0
+
+  
+
+
+
+

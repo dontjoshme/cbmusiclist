@@ -1,0 +1,99 @@
+Close Brace 5 Minute React: SublimeText
+
+---------
+Resources
+---------
+
+  ES6 for Everyone course - Wes Bos: https://es6.io/friend/CLOSEBRACE
+
+  Arrow Functions: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+  
+
+---------
+Commands
+---------
+
+  Node Version Manager (NVM): 
+
+    Install version: $ nvm install v6.10.0
+
+    View installed versions: $ nvm ls
+
+    Set verions: $ nvm use v6.10.0  *Anytime you switch versions, you have to reinstall any global Node modules needed
+
+
+  Node:
+
+    Enter Node Console: $ Node
+
+-------
+Install
+-------
+
+  Install Homebrew:
+    
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  
+  Update Homebrew: 
+    
+    $ brew update
+
+  Install or Update NVM (Node Version Manager):
+    
+    $ brew install nvm  
+    - or -
+    $ brew update nvm
+
+    Add NVM to shell:
+
+      $ cd ~
+      $ mkdir $HOME/.nvm
+
+      Add to end of bash file (.bash_profile -or- .zshrc): 
+
+          export NVM_DIR="$HOME/.nvm"
+          . "/usr/local/opt/nvm/nvm.sh"
+
+      Save & kill terminal session - then $ nvm
+
+  Install Yarn (Package Control):
+
+    $ brew update && brew install yarn
+
+    edit shell config (.bash_profile or .zshrc)
+
+      add to eof: export PATH="$PATH: yarn global bin"
+
+
+
+
+
+-----
+Yarn
+-----
+  
+  Initialize a new package using Yarn:
+
+    $ yarn init
+
+    follow propmts > creates package.json in current folder
+
+  Add packages dependencies:
+
+    $ yarn add [package name] (ex. $ yarn add map-reverse)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
