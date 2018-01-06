@@ -12,6 +12,14 @@ Commands
 
   Push Changes: $ git push
 
+  Create Branch: $ git branch branchName
+
+  View list of Branches initialized on machine: $ git branch
+
+  Switch Branches: $ git checkout branchName
+
+  Tell Repo to track branch: $ git push -u origin develop
+
 ---------------
 Install & Setup
 ---------------

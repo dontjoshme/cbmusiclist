@@ -8,7 +8,7 @@ Resources
 
   Arrow Functions: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 
-  
+
 
 ---------
 Commands
@@ -26,6 +26,10 @@ Commands
   Node:
 
     Enter Node Console: $ Node
+
+  Nodemon: 
+
+    Launch: $ nodemon npm start
 
 -------
 Install
@@ -64,6 +68,10 @@ Install
     edit shell config (.bash_profile or .zshrc)
 
       add to eof: export PATH="$PATH: yarn global bin"
+
+  Install Nodemon (Node Monitor):
+
+    $ yarn global add nodemon
 
 
 
