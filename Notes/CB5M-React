@@ -20,6 +20,123 @@ Install
 
       Sass-Loader and Node-Sass allow us to use Webpack to bundle .scss files into a single .css file
 
+  *** Webpack Setup ***
+
+    Create webpack.config.js in top level of project
+
+    Follow tutorial: Five Minute React 24 - https://closebrace.com/tutorials/2017-06-01/five-minute-react-24-setting-up-webpack
+
+    Create a script to run Webpack in package.json
+
+      add to scripts: "build-dev": "webpack --config webpack.config.js --progress --profile --colors"
+
+      When running "yarn run build-dev" it will run Webpack, using the config file "webpack.config.js"
+
+  *** Babel Setup ***
+
+    Create .babelrc in top level of project
+
+      // These are the rulses Babel will use when Webpack call on it to transpile ES7 and JSX to Javascript
+
+      {
+        "presets": ["es2017, "react"],
+      }
+
+  *** Install & Setup Webpack Hot-Reloading ***
+
+    $ yarn add --dev webpack-dev-server react-hot-loader@next
+
+    in .eslintrc: add to rules block: 
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true }],"  // Alows Dev dependencies in code
+
+    in .babelrc add: "plugins": ["react-hot-loader/babel"]
+
+    make the following changes to webpack.config.js:
+
+      1) change const path = require('path')
+
+          to: const { resolve } = require('path');
+              const webpack = require('webpack');
+
+      2) just below module.exports, add:
+
+          context: resolve(__dirname, 'src'),
+
+      3) re-write entry block as an array of values instead of an object as such:
+
+          entry: [
+            'react-hot-loader/patch',
+            'webpack-dev-server/client?http://localhost8080',
+            'webpack/hot/only-dev-server',
+            './index.jsx',
+          ]
+
+      4) re-write output block as follows:
+
+          output: {
+            filename: 'build.js',
+            path: resolve(__dirname, 'public', 'javascripts'),
+            publicPath: '/javascripts',
+          },
+
+      5) after output block add devServer block:
+
+          devServer: {
+            hot: true,
+            contentBase: resolve(__dirname, ''),
+            publicPath: '/javascripts',
+          }
+
+      6) add plugins block after module block:
+
+          plugins: [
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NamedModulesPlugin(),
+          ],
+
+    Edit /views/index.ejs as follows:
+
+        change script src from "/javascripts/build.js" to "http://localhost:8080/javascripts/build.js"
+
+          - tells React app to load from Webpack Dev Server instead of from a static file
+
+    Edit /src/index.jsx as follows:
+
+      1)  add an import for App Container: import { AppContainer } from 'react-hot-loader';
+
+      2) add the following function to bottom of file:
+
+        const renderApp = (Component) => {
+          render(
+            <AppContainer>
+              <Component headline="Test Headline" count={1234} showCount />
+            </AppContainer>,
+            document.querySelector('#react-app'),
+          );
+        };
+
+      3) Then delete ols render block
+
+      4) Then add new renderApp block at bottom of file: renderApp(TestComponent);
+
+      5) Check to see if hot reloading is enabled in webpack build and if it is, reinitialize our top-level component:
+
+        add to bottom of file:
+
+          if (module && module.hot) {
+            module.hot.accept('./testconponent', () => {
+              renderApp(TestComponent);
+            });
+          }
+
+    Add script in package.json to run Webpack dev server: "start-w": "webpack-dev-server",
+
+  *** Install React Router ***
+
+    yarn add react-router-dom
+
+  *** Follow tutorial 32 to fix Webpack ***
+
 
 -----
 Notes
