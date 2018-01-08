@@ -1,0 +1,37 @@
+Close Brace 5 Minute React: Testing with Jest
+
+  ---------
+  Resources
+  ---------
+
+  Benefits of TDD (Test-Driven Development) - James Sinclair: 
+    http://jrsinclair.com/articles/2016/one-weird-trick-that-will-change-the-way-you-code-forever-javascript-tdd/
+
+
+  ------------
+  Install Jest
+  ------------
+
+    $ yarn add jest --dev  // the --dev wont be installed on a production build
+
+    Install supertest to test HTTP responses (is API responding correctly?)
+
+      $ yarn add supertest --dev
+
+  -------------
+  Writing Tests
+  -------------
+
+    Write test first, then write routine to make it pass
+
+      Add user to DB
+
+        $ mongo 
+        > use dbName
+
+        > db.users.deletyMany({});  // clear out users collection if needed
+
+        > db.users.insert({ "username": "administrator", "password": "changethisasap", "firstName": "Joshua", "lastName":"Mullenberg"});
+
+        
+

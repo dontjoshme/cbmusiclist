@@ -1,0 +1,69 @@
+Close Brace 5 Minute React: ESLint
+
+  Code Consistency
+
+  ---------
+  Resources
+  ---------
+
+    JavaScript Style Guide - AirBnB: https://github.com/airbnb/javascript
+
+  --------
+  Commands
+  --------
+
+    Find all files with linting errors: $ yarn lint
+
+  -------
+  Install
+  -------
+
+    $ npm info "eslint-config-airbnb@latest" peerDependencies. // Get current versions of dependencies
+
+
+    Replace versions with current and install with yarn
+
+      $ yarn add --dev eslint-config-airbnb eslint@^4.9.0 eslint-plugin-jsx-a11y@^6.0.2 eslint-plugin-import@^2.7.0 eslint-plugin-react@^7.4.0
+
+    Create a text file in top level of app called: .eslintrc 
+
+    Add the following to .eslintrc:
+
+      {
+        "extends": "airbnb"
+      }
+
+    Save & Close any open .js files
+
+    Add rule exception for including next without explicitly using it:
+
+    {
+      "extends": "airbnb",
+      "rules": {
+        "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+      }
+    }
+
+    Install ESLint and its dependencies globally in order to run from command line:
+
+      $ yarn global add eslint-config-airbnb eslint@^4.9.0 eslint-plugin-jsx-a11y@^6.0.2 eslint-plugin-import@^2.7.0 eslint-plugin-react@^7.4.0
+
+    Add plugin to lint jest tests:
+
+      $ yarn add --dev eslint-plugin-jest
+      $ yarn global add eslint-plugin-jest
+
+    Edit .eslintrc (add the following below the "extends" block but above the "rules" block:
+
+      "plugins": [ "jest" ],
+      "env": {
+        "jest/globals": true
+      }
+
+    Setup a script to run the linter:
+
+      Open package.json and add to the scripts section:
+
+        "lint": "eslint ."
+
+

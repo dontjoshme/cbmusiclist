@@ -1,0 +1,37 @@
+Close Brace 5 Minute React: React
+
+-------
+Install
+-------
+
+  Create React App: https://github.com/facebookincubator/create-react-app
+
+  - or - 
+
+  $ yarn add react react-dom webpack babel-loader babel-core babel-jest babel-preset-react sass-loader node-sass babel-preset-es2017
+
+      React and React-Dom are necessary components for React Development
+
+      Babel-Loader and Babel-Core let us use Babel while compiling with Webpack
+
+      Babel-Jest gives us hooks for jest testing
+
+      Babel-Preset-React gives hooks for JSX transpiling
+
+      Sass-Loader and Node-Sass allow us to use Webpack to bundle .scss files into a single .css file
+
+
+-----
+Notes
+-----
+
+  Babel: Transpiler - Takes in code from one language and spits out another.  Babel can take in ES6 and JSX and write out 
+
+                      ES5, allow app to run on a wider array of browsers.
+
+
+  Webpack:  Bundler - takes all the separate .js files and compiles into a single build.js. Does the same with .scss to 
+
+                      .css and also filters out unused functions and other optimizations.
+
+

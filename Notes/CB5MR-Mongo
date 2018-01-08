@@ -12,29 +12,31 @@ Commands
 
   Start Mongo Shell: $ mongo
 
-  Show Databases: $ show dbs
+  Show Databases: > show dbs
 
-  Show Current Working Database: $ db
+  Show Current Working Database: > db
 
-  Show Collections: $ show collections
+  Show Collections: > show collections
 
-  Create Database: $ use databaseName (ex. $ use musiclist)
+  Create Database: > use databaseName (ex. > use musiclist)
 
     ** Database is not created until you put some data in it **
 
-  Insert: $ db.collectionName.insert({ key: 'Value', anotherKey: 'Another Value' });
+  Insert: > db.collectionName.insert({ key: 'Value', anotherKey: 'Another Value' });
 
     * Can also be an array of objects: [{ key: 'Value1', anotherKey: 'Another Value1' }, { key: 'Val2', anotherKey: 'AVal2' }];
 
-  Find: db.collectionName.find();
+  Find: > db.collectionName.find();
 
-  Find Pretty: db.collectionName.find().pretty();
+  Find Pretty: > db.collectionName.find().pretty();
 
-  Update a single entry: $ db.collectionName.updateOne({ searchKey: 'value' }, $set: { keyToChange: 'value' });
+  Update a single entry: > db.collectionName.updateOne({ searchKey: 'value' }, >set: { keyToChange: 'value' });
 
     * Returns first match
 
-  Remove an entry: $ db.collectionName.remove({ searchKey: 'value' });
+  Remove an entry: > db.collectionName.remove({ searchKey: 'value' });
+
+  Remove all: > db.users.deleteMany({})
 
 
 

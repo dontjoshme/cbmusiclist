@@ -1,0 +1,50 @@
+Close Brace 5 Minute React: Mongoose
+
+  Data Modeling for MongoDB
+
+    Data models help track what data to send, and what data you're going to recieve, when making API calls
+
+  Mongoose is a ORM (Object Relational Mapping) tool
+
+    Built to take the BSON transmitted by MongoDB and covert it to usable JavaScript objects/arrays/etc & vice versa
+
+
+  ---------------
+  Install & Setup
+  ---------------
+
+    From the project folder: $ yarn add mongoose
+
+    In app.js at the bottom of the require block add: const mongoose = require('mongoose');
+
+    Connect Mongoose to local MongoDB server and the collection:
+
+      Add below the 'const app = express();' line: 
+
+        // Connect Mongoose
+        mongoose.connect('mongodb://localhost/cbmusiclist')
+
+    Create dir at top level of project called "models"
+
+
+  -------------
+  Create Model
+  -------------
+
+    Create modelName.js in models folder of project
+
+    Example contents of modelName.js:
+
+      const mongoose = require('mongoose');
+      const Schema = mongoose.Schema;
+
+      const User = new Schema({
+        username: String,
+        password: String,
+        firstName: String,
+        lastName: String
+      });
+
+      module.exports = mongoose.model('User', User);
+
+

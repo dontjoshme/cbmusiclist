@@ -1,0 +1,74 @@
+Close Brace 5 Minute React: Passport
+
+-------
+Install
+-------
+  
+  Add the following 4 dependencies in package.json (should be kept in alphabetical order):
+
+    "express-session": "^1.10.1",     // Companion module helps manage user sessions across page and API requests
+
+    "passport": "^0.3.2",
+
+    "passport-local": "^1.0.0",       // Helps tie passort authentication into express
+
+    "passport-local-mongoose": "^4.0.0",    // simplifies talkting to db when logging in w/ un & pw
+
+  Run yarn to install dependencies: $ yarn
+
+  Tie modules into express:
+
+    In app.js > at bottom of require block add:
+
+      const passport = require('passport');
+
+      const LocalStrategy = require('passport-local').Strategy;   // Brings in "Strategy" constructor from Passport-Local
+                                                                  // connects express to authentication setup
+
+    In app.js > just below app.use(cookieParser()); add:
+
+      app.use(require('express-session')({
+        secret: 'any random string can go here',
+        resave: false,
+        saveUninitialized: false
+      }));
+      app.use(passport.initialize());
+      app.use(passport.session());
+
+      // These lines tell the app to use the Express Session middleware (with config options), along with Passport, including passport's session management which will partner up with Express session.
+
+    In app.js > below the routes app.use('/api', api); add:
+
+      // Configure Passport
+      const User = require('./models/user');
+      passport.use(new LocalStrategy(User.authenticate()));
+      passport.serializeUser(User.serializeUser());
+      passport.deserializeUser(User.deserializeUser());
+
+    In /models/users.js > require passport-local-mongoose:
+
+      const passportLocalMongoose = require('passport-local-mongoose');
+
+    In /models/users.js > add after model definition:
+
+      User.plugin(passportLocalMongoose);
+
+    Make sure MongoDB is up and running and run Nodemon Yarn Start to make sure error free
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

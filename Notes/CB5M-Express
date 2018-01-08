@@ -1,0 +1,35 @@
+Close Brace 5 Minute React: Express
+
+--------
+Commands
+--------
+
+start webserver: $ yarn start 
+  
+  (run from project dir)
+
+
+---------------
+Install & Setup
+---------------
+
+  Install Express-generator as a global module
+
+    ** must be re-installed if switching node versions
+
+    $ yarn global add express-generator
+
+  Install the webserver
+
+    cd to project parent dir
+
+    $ express -v ejs -f projectdir
+
+      (install express using EJS as a view engine in the projectdir folder even though theres already some stuff in there)
+
+  Install modules from package.json
+
+    switch to project dir
+
+    $ yarn
+
