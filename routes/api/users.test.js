@@ -12,7 +12,7 @@ describe('The User API', () => {
       .expect(200)
       .expect('Content-Type', /json/);
 
-    // These expects are jest, not supertest
+    // These expects are jest, not supertext
     // First, expect to get a result that is an array
     expect(Array.isArray(res.body)).toBe(true);
     // Second, expect the array to have something in it
