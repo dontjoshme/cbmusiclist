@@ -5,11 +5,12 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const User = new Schema({
   username: String,
-  password: { type: String, select: false },
+  //password: { type: String, select: false },
   // select:false - dont return unless explicity asked to do so
   firstName: String,
   lastName: String,
   email: String,
+  passwordReset: { type: String, select: false },
 });
 
 User.plugin(passportLocalMongoose);
